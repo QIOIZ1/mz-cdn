@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 羊羊得意
 // @namespace http://tampermonkey.net/
-// @version 5.0.0
+// @version 5.2.0
 // @description 小🐏向前冲
 // @author 🐏
 // @match *://avg.163.com/me/edit
