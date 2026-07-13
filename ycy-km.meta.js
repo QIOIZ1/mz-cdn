@@ -16,7 +16,7 @@
 // @grant unsafeWindow
 // @grant GM_getValue
 // @grant GM_setValue
-// @updateURL   https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.meta.js?v=5.2.1
-// @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.user.js?v=5.2.1
+// @updateURL   https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@5.2.1/ycy-km.meta.js
+// @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@5.2.1/ycy-km.user.js
 // @run-at document-start
 // ==/UserScript==
