@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 羊羊得意
 // @namespace http://tampermonkey.net/
-// @version 5.1.0
+// @version 5.2.0
 // @description 小🐏向前冲
 // @author 🐏
 // @match *://avg.163.com/me/edit
@@ -21,5 +21,3 @@
 // @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.user.js
 // @run-at document-start
 // ==/UserScript==
-
-function _0xbc5e(_0x
