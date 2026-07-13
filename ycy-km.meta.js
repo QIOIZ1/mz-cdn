@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 羊羊得意
 // @namespace http://tampermonkey.net/
-// @version 5.2.0
+// @version 5.2.1
 // @description 小🐏向前冲
 // @author 🐏
 // @match *://avg.163.com/me/edit
@@ -16,8 +16,7 @@
 // @grant unsafeWindow
 // @grant GM_getValue
 // @grant GM_setValue
-// @grant GM_xmlhttpRequest
-// @updateURL   https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.meta.js
-// @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.user.js
+// @updateURL   https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.meta.js?v=5.2.1
+// @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.user.js?v=5.2.1
 // @run-at document-start
 // ==/UserScript==
