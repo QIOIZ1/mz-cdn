@@ -21,3 +21,5 @@
 // @downloadURL https://cdn.jsdelivr.net/gh/QIOIZ1/mz-cdn@main/ycy-km.user.js
 // @run-at document-start
 // ==/UserScript==
+
+function _0xbc5e(_0x
