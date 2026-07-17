@@ -26,6 +26,10 @@
 (function() {
     "use strict";
 
+    if (typeof unsafeWindow === 'undefined') {
+        window.unsafeWindow = window;
+    }
+
     // ==========================================
     // 0. 最早注入：劫持 Proxy 构造函数（必须在游戏脚本加载前执行）
     // ==========================================
