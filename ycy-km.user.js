@@ -1,19 +1,19 @@
 // ==UserScript==
 // @name 羊羊得意
 // @namespace http://tampermonkey.net/
-// @version 5.2.5
+// @version 5.2.7
 // @description 小🐏向前冲
 // @author 🐏
 // @match *://avg.163.com/me/edit
 // @match *://wap.avg.163.com/me/edit
-// @match https://avg.163.com/enginejs/index.html*
-// @match https://avg.163.com/engine/index.html*
-// @match https://wap.avg.163.com/enginejs/index.html*
-// @match https://wap.avg.163.com/engine/index.html*
-// @match https://avg.163.com/game/detail/*
-// @match https://wap.avg.163.com/game/detail/*
-// @match https://avg.163.com/debugPlayer.html*
-// @match https://wap.avg.163.com/debugPlayer.html*
+// @match *://avg.163.com/enginejs/index.html*
+// @match *://avg.163.com/engine/index.html*
+// @match *://wap.avg.163.com/enginejs/index.html*
+// @match *://wap.avg.163.com/engine/index.html*
+// @match *://avg.163.com/game/detail/*
+// @match *://wap.avg.163.com/game/detail/*
+// @match *://avg.163.com/debugPlayer.html*
+// @match *://wap.avg.163.com/debugPlayer.html*
 // @icon https://www.google.com/s2/favicons?sz=64&domain=163.com
 // @grant unsafeWindow
 // @grant GM_getValue
@@ -462,6 +462,11 @@
         initEarly: () => {
             if (Env.isYiCiYuanJS()) AvgEngineHandler.engineType = 'enginejs';
             else if (Env.isYiCiYuanH5()) AvgEngineHandler.engineType = 'engine';
+            else if (Env.isDebugPlayer()) {
+                const iframe = document.querySelector('iframe[src*="enginejs/index.html"]');
+                if (iframe) AvgEngineHandler.engineType = 'enginejs';
+                else AvgEngineHandler.engineType = 'engine';
+            }
             if (AvgEngineHandler.engineType === 'enginejs') AvgEngineHandler.injectScriptModifiers();
             if (AvgEngineHandler.engineType === 'engine' && !unsafeWindow.AVGErrorHandler) {
                 unsafeWindow.AVGErrorHandler = { init: function() {}, report: function() {}, catchException: function() { return function() {}; }, setErrorHandler: function() {} };
@@ -528,9 +533,9 @@
             const autoAdapt = (text) => {
                 let adapted = 0;
                 let m = text.match(/\w+\((\w+)\['currentGameId'\]\)\['then'\]\(function\((\w+)\)\{if\(\w+\['log'\]\('游戏配置的JSON资源加载完毕'\)/);
-                if (m) { text = text.replace(m[0], `${m[0]}${m[2]}.data.cts={};`); adapted++; }
+                if (m) { text = text.replace(m[0], m[0] + m[2] + ".data.cts={};"); adapted++; }
                 m = text.match(/(\w+)\=\{'isIndieGame'/);
-                if (m) { text = text.replace(m[1] + "={", `${m[1]}=window.glb={`); adapted++; }
+                if (m) { text = text.replace(m[1] + "={", m[1] + "=window.glb={"); adapted++; }
                 const proxies = [
                     { type: 'var', ac: 'var', ctx: "['sent']()" },
                     { type: 'arr', ac: 'arr', ctx: "['id']))" },
@@ -872,7 +877,8 @@
     // ==========================================
     const Env = {
         isYiCiYuanJS: () => location.href.includes("avg.163.com/enginejs/index.html"),
-        isYiCiYuanH5: () => location.href.includes("avg.163.com/engine/index.html")
+        isYiCiYuanH5: () => location.href.includes("avg.163.com/engine/index.html"),
+        isDebugPlayer: () => location.href.includes("avg.163.com/debugPlayer.html")
     };
 
     // 调试播放器跳转逻辑
