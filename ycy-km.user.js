@@ -586,7 +586,7 @@
                                 const resp = await fetch(CONSTANTS.MZ_FALLBACK_URL);
                                 text = await resp.text();
                                 const fallbackResult = autoAdapt(text);
-                                if (fallbackResult.adapted > 0) text = fallbackResult.text;
+                                if (fallbackResult.adapted === 6) text = fallbackResult.text;
                             } catch {}
                         }
                         if (text) { script.textContent = text; document.body.appendChild(script); }
