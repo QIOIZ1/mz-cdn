@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 羊羊得意
 // @namespace http://tampermonkey.net/
-// @version 5.2.3
+// @version 5.2.5
 // @description 小🐏向前冲
 // @author 🐏
 // @match *://avg.163.com/me/edit
@@ -543,7 +543,7 @@
                     while ((match = re.exec(text)) !== null) {
                         const ctxStart = Math.max(0, match.index - 200);
                         if (text.substring(ctxStart, match.index).includes(p.ctx)) {
-                            text = text.replace(match[0], `${match[0]}window.ymlf${p.type}=${match[3]};if(window.$jksj){window.$jkddsj[\`ac.${p.ac}['\${${match[2]}}']\`]=true};`);
+                            text = text.replace(match[0], match[0] + "window.ymlf" + p.type + "=" + match[3] + ";if(window.$jksj){window.$jkddsj[`ac." + p.ac + "['${" + match[2] + "}']`]=true};");
                             adapted++;
                             break;
                         }
@@ -555,7 +555,7 @@
                             const ctxCheck = Math.max(0, m2.index - 300);
                             const ctxText = text.substring(ctxCheck, m2.index);
                             if (ctxText.includes(p.ctx) || p.ctx === "") {
-                                text = text.replace(m2[0], `${m2[0]}window.ymlf${p.type}=${m2[1]};if(window.$jksj){window.$jkddsj[\`ac.${p.ac}['\${${m2[2]}}']\`]=true};`);
+                                text = text.replace(m2[0], m2[0] + "window.ymlf" + p.type + "=" + m2[1] + ";if(window.$jksj){window.$jkddsj[`ac." + p.ac + "['${" + m2[2] + "}']`]=true};");
                                 adapted++;
                             }
                         }
