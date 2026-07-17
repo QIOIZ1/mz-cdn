@@ -12,6 +12,8 @@
 // @match https://wap.avg.163.com/engine/index.html*
 // @match https://avg.163.com/game/detail/*
 // @match https://wap.avg.163.com/game/detail/*
+// @match https://avg.163.com/debugPlayer.html*
+// @match https://wap.avg.163.com/debugPlayer.html*
 // @icon https://www.google.com/s2/favicons?sz=64&domain=163.com
 // @grant unsafeWindow
 // @grant GM_getValue
